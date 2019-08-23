@@ -30,6 +30,7 @@
                     <span class="blue">参与项目</span>
                     <span class="blue">调整部门</span>
                     <span class="blue">评价</span>
+                    <span class="orange">事件流</span>
                     <span class="red">删除</span>
                 </template>
             </el-table-column>

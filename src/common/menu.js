@@ -23,7 +23,7 @@ export default [
         level: "1",
         children: [
             {
-                name: "面试题库",
+                name: "公司题库",
                 id: "31",
                 level: "2",
                 icon: "el-icon-document-copy",
@@ -35,6 +35,13 @@ export default [
                 level: "2",
                 icon: "el-icon-notebook-2",
                 path: "/interview/draw"
+            },
+            {
+                name: "面试记录",
+                id: "33",
+                level: "2",
+                icon: "el-icon-s-custom",
+                path: "/interview/record"
             }
         ]
     },
@@ -58,6 +65,13 @@ export default [
                 level: "2",
                 icon: "el-icon-share",
                 path: "/employe/topology"
+            },
+            {
+                name: "工位管理",
+                id: "43",
+                level: "2",
+                icon: "el-icon-bangzhu",
+                path: "/employe/seat"
             }
         ]
     },

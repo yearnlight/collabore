@@ -265,10 +265,8 @@ export default {
   height: calc(100% - 60px);
 }
 .sys-content {
-  // overflow: hidden !important;
   overflow-y: hidden;
   width: 100%;
-  // height: 100%;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column !important;
