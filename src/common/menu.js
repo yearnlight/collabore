@@ -51,6 +51,13 @@ export default [
                 level: "2",
                 icon: "el-icon-s-custom",
                 path: "/employe/list"
+            },
+            {
+                name: "组织架构",
+                id: "42",
+                level: "2",
+                icon: "el-icon-share",
+                path: "/employe/topology"
             }
         ]
     },
