@@ -1,43 +1,43 @@
 <template>
-    <el-container class="sys">
-        <el-scrollbar :class="{ notCollapse: !isCollapse, isCollapse: isCollapse }">
-            <el-aside width="100%">
-                <el-menu :default-openeds="open_list" router :default-active="$route.path" :collapse="isCollapse" text-color="#444" active-text-color="#0086F4" :unique-opened="true" @select="menuSelected">
-                    <el-submenu v-if="item.children && !item.noPermission" :index="`${mIndex}`" v-for="(item, mIndex) in menus" :key="mIndex">
-                        <template slot="title">
-                            <i :class="item.icon"></i>
-                            <span>{{ item.name }}</span>
-                        </template>
-                        <el-menu-item :index="`/enter${child.path}`" v-for="child in item.children" :key="child.id">
-                            <i class="icon el-icon-star-off"></i>
-                            <span slot="title">{{ child.name }}</span>
-                        </el-menu-item>
-                    </el-submenu>
+  <el-container class="sys">
+    <el-scrollbar :class="{ notCollapse: !isCollapse, isCollapse: isCollapse }">
+      <el-aside width="100%">
+        <el-menu :default-openeds="open_list" router :default-active="$route.path" :collapse="isCollapse" text-color="#444" active-text-color="#0086F4" :unique-opened="true" @select="menuSelected">
+          <el-submenu v-if="item.children && !item.noPermission" :index="`${mIndex}`" v-for="(item, mIndex) in menus" :key="mIndex">
+            <template slot="title">
+              <i :class="item.icon"></i>
+              <span>{{ item.name }}</span>
+            </template>
+            <el-menu-item :index="`/enter${child.path}`" v-for="child in item.children" :key="child.id">
+              <i class="icon el-icon-star-off"></i>
+              <span slot="title">{{ child.name }}</span>
+            </el-menu-item>
+          </el-submenu>
 
-                    <el-menu-item :class="{'active': $route.path.includes(item.path),'no-active': !$route.path.includes(item.path)}" v-if="!item.children && !item.hide" :index="`/enter${item.path}`" v-for="item in menus" :key="item.id">
-                        <i :class="item.icon"></i>
-                        <span slot="title">{{ item.name}}</span>
-                    </el-menu-item>
-                </el-menu>
-            </el-aside>
-        </el-scrollbar>
-        <el-container>
-            <div class="sys-content">
-                <div class="sys-content-breadcrumb">
-                    <el-breadcrumb class="sys-content-breadcrumb" separator="/">
-                        <el-breadcrumb-item v-for="(item, index) in crumbs" :key="index">
-                            <span class="crumb-path" v-if="index < crumbs.length - 1" @click="goToCrumbRoute(item.path)">{{ item.name }}</span>
-                            <span class="crumb-cur" v-else>{{ item.name }}</span>
-                        </el-breadcrumb-item>
-                    </el-breadcrumb>
-                    <span class="service-phone">客服电话 18700472414</span>
-                    <span @click="toBack" class="return-router el-icon-back"></span>
-                </div>
+          <el-menu-item :class="{'active': $route.path.includes(item.path),'no-active': !$route.path.includes(item.path)}" v-if="!item.children && !item.hide" :index="`/enter${item.path}`" v-for="item in menus" :key="item.id">
+            <i :class="item.icon"></i>
+            <span slot="title">{{ item.name}}</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+    </el-scrollbar>
+    <el-container>
+      <div class="sys-content">
+        <div class="sys-content-breadcrumb">
+          <el-breadcrumb class="sys-content-breadcrumb" separator="/">
+            <el-breadcrumb-item v-for="(item, index) in crumbs" :key="index">
+              <span class="crumb-path" v-if="index < crumbs.length - 1" @click="goToCrumbRoute(item.path)">{{ item.name }}</span>
+              <span class="crumb-cur" v-else>{{ item.name }}</span>
+            </el-breadcrumb-item>
+          </el-breadcrumb>
+          <span class="service-phone">客服电话 18700472414</span>
+          <span @click="toBack" class="return-router el-icon-back"></span>
+        </div>
 
-                <router-view :key="refreshRouterKey" class="sys-content-page">></router-view>
-            </div>
-        </el-container>
+        <router-view :key="refreshRouterKey" class="sys-content-page"></router-view>
+      </div>
     </el-container>
+  </el-container>
 </template>
 <script>
 import bus from "@/bus";
@@ -147,13 +147,7 @@ export default {
       if (!this.$route.path.includes("/enter")) {
         return;
       }
-      if (this.GET_ISBATCHMANAGE) {
-        this.SET_BATCHMANAGE(false);
-        this.$router.go(0);
-      } else {
-        this.SET_BATCHMANAGE(false);
-        this.$router.go(-1);
-      }
+      this.$router.go(-1);
     }
   },
   beforeDestroy() {
@@ -285,6 +279,7 @@ export default {
   }
   &-breadcrumb {
     display: flex;
+    font-size: 13px;
     align-items: center;
     background-color: #ffffff;
     .return-router {
@@ -310,22 +305,22 @@ export default {
       .red {
         @extend %red;
         cursor: pointer;
-        margin-left: 10px;
+        margin-right: 10px;
       }
       .blue {
         @extend %blue;
         cursor: pointer;
-        margin-left: 10px;
+        margin-right: 10px;
       }
       .orange {
         @extend %orange;
         cursor: pointer;
-        margin-left: 10px;
+        margin-right: 10px;
       }
       .green {
         @extend %green;
         cursor: pointer;
-        margin-left: 10px;
+        margin-right: 10px;
       }
     }
     .el-pagination {
